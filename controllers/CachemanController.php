@@ -15,20 +15,12 @@ class CachemanController extends BaseController
 
 	public function actionIndex()
 	{
-
-		// craft()->htmlcache->clearCacheFiles();
-		// Htmlcache_HtmlcacheService::clearCacheFiles();
 		$cache = new Htmlcache_HtmlcacheService;
 		$cache->clearCacheFiles();
-		// $templatesPath = craft()->path->getPluginsPath() . 'cacheman/templates/';
-		// craft()->path->setTemplatesPath($templatesPath);
-
-		// $templateData = array();
 		
 		if (isset($_GET['v'])) {
 			$this->renderText('Cleared at '.date("H:i:s d-m-Y"));
 		} else {
-			$now = \rand();
 			$this->refresh(false, '?'.'v');
 		}
 
